@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script type="application/javascript">
+      function draw() {
+        const canvas = document.getElementById('canvas');
+        if (canvas.getContext) {
+          const ctx = canvas.getContext('2d');
+
+          for (let i = 0; i < 4; i++) {
+            for (let j = 0; j < 3; j++) {
+              ctx.beginPath();
+              const x = 25 + j * 50; // x coordinate
+              const y = 25 + i * 50; // y coordinate
+              const radius = 20; // Arc radius
+              const startAngle = 0; // Starting point on circle
+              const endAngle = Math.PI + (Math.PI * j) / 2; // End point on circle
+              const anticlockwise = i % 2 == 0 ? false : true; // clockwise or anticlockwise
+
+              ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
+
+              if (i > 1) {
+                ctx.fill();
+              } else {
+                ctx.stroke();
+              }
+            }
+          }
+        }
+      }
+    </script>
+  </head>
+  <body onload="draw();">
+    <canvas id="canvas" width="150" height="200"></canvas>
+  </body>
+</html>

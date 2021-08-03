@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Title</title>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+
+        const lineCap = ['butt','round','square'];
+        ctx.strokeStyle = 'black';
+        for (let i = 0; i < lineCap.length; i++){
+            ctx.lineWidth = 15;
+            ctx.lineCap = lineCap[i];
+            ctx.beginPath();
+            ctx.moveTo(25 + i * 50, 10);
+            ctx.lineTo(25 + i * 50, 140);
+            ctx.stroke();
+        }
+    </script>
+</body>
+</html>

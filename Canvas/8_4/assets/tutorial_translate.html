@@ -11,17 +11,13 @@
         const canvas = document.getElementById("canvas");
         const ctx = canvas.getContext("2d");
 
-        const img = new Image();
-        img.onload = function() {
-            ctx.drawImage(img, 0, 0);
-            ctx.beginPath();
-            ctx.moveTo(30, 96);
-            ctx.lineTo(70, 66);
-            ctx.lineTo(103, 76);
-            ctx.lineTo(170, 15);
-            ctx.stroke();
-        };
-        img.src = 'https://mdn.mozillademos.org/files/5395/backdrop.png';
+        for (let i = 0; i < 10; i++) {
+            ctx.save();
+            ctx.fillStyle = `rgb(61,${(i * 30)} , 255)`;
+            ctx.translate(10 + (30 * i), 0);
+            ctx.fillRect(0, 0, 30, 30);
+            ctx.restore();
+        }
     </script>
 </body>
 </html>

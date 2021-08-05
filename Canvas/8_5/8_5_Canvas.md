@@ -40,6 +40,8 @@ const imageData = ctx.getImageData(left, top, width, height);
 이 함수는 `(left, top)`과 `(left + width, top + height)`를 꼭짓점으로 가지는 사각형 내의 픽셀 데이터를
 `ImageData`로 반환한다.
 
++ [예제](./assets/tutorial_imageData.html)
+
 ---
 
 #### 픽셀 데이터 수정

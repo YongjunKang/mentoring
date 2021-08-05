@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Title</title>
+</head>
+<body>
+    <canvas id="canvas" height="500" width="500"></canvas>
+    <script>
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+
+        for (let i = 0; i < 4; i++) {
+            ctx.save();
+            ctx.fillStyle = `rgb(61,${(i * 40)} , 255)`;
+            ctx.translate(10 + (60 * i), 0);
+            ctx.fillRect(0, 0, 50, 50);
+
+            ctx.translate(25, 25);
+            ctx.rotate(angToRad(45));
+            ctx.translate(-25, -25);
+
+            ctx.fillStyle = `rgb(${(i * 40) + 100}, 0, 0)`;
+            ctx.fillRect(0, 0, 50, 50);
+            ctx.restore();
+        }
+
+        function angToRad(ang) {
+            return (Math.PI / 180) * ang
+        }
+    </script>
+</body>
+</html>
